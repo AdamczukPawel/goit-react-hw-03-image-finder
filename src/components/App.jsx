@@ -1,9 +1,12 @@
 import { Component } from 'react';
-import axios from 'axios';
+import css from './App.module.css';
+
+import { Loader } from './Loader/Loader';
 import { fetchPicturesByTopic } from '../services/api';
 import Searchbar from './Searchbar/Searchbar';
 import { ImageGallery } from './ImageGallery/ImageGallery';
 import { Button } from './Button/Button';
+import axios from 'axios';
 
 axios.defaults.baseURL = 'https://pixabay.com/api/';
 
@@ -52,13 +55,14 @@ export class App extends Component {
 
   render() {
     return (
-      <>
+      <div className={css.app}>
         <Searchbar onSubmit={this.handleSubmit} />
+        {this.state.isLoading && <Loader />}
         <ImageGallery images={this.state.pictures} />
         {this.state.pictures.length > 0 ? (
           <Button onClick={this.loadMore} />
         ) : null}
-      </>
+      </div>
     );
   }
 }
