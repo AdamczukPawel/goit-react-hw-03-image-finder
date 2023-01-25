@@ -5,12 +5,12 @@ import { ImageGalleryItem } from 'components/ImageGalleryItem/ImageGalleryItem';
 export const ImageGallery = ({ images }) => {
   return (
     <ul className={css.gallery}>
-      {images.map(image => (
+      {images.map(({ webformatURL, largeImageURL, id, tags }) => (
         <ImageGalleryItem
-          id={image.id.toString()}
-          webformatURL={image.webformatURL}
-          largeImageURL={image.largeImageURL}
-          tags={image.tags}
+          key={id}
+          webformatURL={webformatURL}
+          largeImageURL={largeImageURL}
+          tags={tags}
         />
       ))}
     </ul>
