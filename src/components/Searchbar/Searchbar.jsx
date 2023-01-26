@@ -3,13 +3,9 @@ import PropTypes from 'prop-types';
 import css from './Searchbar.module.css';
 
 class Searchbar extends Component {
-  state = {
-    query: '',
-  };
-
   handleSubmit = event => {
     event.preventDefault();
-    if (this.state.query === "") {
+    if (this.state.query === '') {
       alert('Enter what images you want to see');
       return;
     }
