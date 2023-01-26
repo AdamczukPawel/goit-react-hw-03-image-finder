@@ -9,7 +9,7 @@ class Searchbar extends Component {
 
   handleSubmit = event => {
     event.preventDefault();
-    if (this.state.query === '') {
+    if (this.state.query === "") {
       alert('Enter what images you want to see');
       return;
     }
